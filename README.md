@@ -63,7 +63,7 @@ public function afterSave()
 ```
 and then:
 ```php
-$model->saveTransaction();
+$model->saveTransactional();
 ```
 
 Api description:
