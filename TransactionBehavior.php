@@ -88,12 +88,12 @@ class TransactionBehavior extends CActiveRecordBehavior
 		try {
 			$this->beginTransaction();
 			$this->owner->save($runValidation,$attributes);
+			$this->commit();
 		}catch (Exception $e)
 		{
 			$this->rollback();
 			return false;
 		}
-		$this->commit();
 		$this->autoStart=$autoStart;
 		return true;
 	}
