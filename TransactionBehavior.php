@@ -47,7 +47,7 @@ class TransactionBehavior extends CActiveRecordBehavior
 		if(!$this->_transaction)
 			throw new CDbException(Yii::t('transaction','Nothing to rollback'));
 		$this->_transaction->rollback();
-		unset($this->_transaction);
+		$this->_transaction=null;
 	}
 
 	/**
