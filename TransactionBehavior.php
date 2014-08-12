@@ -59,7 +59,7 @@ class TransactionBehavior extends CActiveRecordBehavior
 			throw new CDbException(Yii::t('transaction','Nothing to commit'));
 
 		$this->_transaction->commit();
-		unset($this->_transaction);
+		$this->_transaction=null;
 		Yii::app()->detachEventHandler('onException',array($this,'rollback'));
 	}
 
