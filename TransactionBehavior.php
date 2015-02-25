@@ -23,10 +23,11 @@ class TransactionBehavior extends CActiveRecordBehavior
 	 */
 	protected $_transaction;
 
-	/**
-	 * Start the transaction
-	 * @return CDbTransaction
-	 */
+    /**
+     * Start the transaction
+     * @throws CDbException
+     * @return CDbTransaction
+     */
 	public function beginTransaction()
 	{
 		$db = $this->owner->dbConnection;
