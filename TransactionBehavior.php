@@ -104,9 +104,10 @@ class TransactionBehavior extends CActiveRecordBehavior
         } catch (Exception $e) {
 
             $this->rollback();
+            $this->owner->addError('transactionException', sprintf('TransactionException. Message: %s', $e->getMessage()));
             return false;
         }
-        
+
         $this->autoStart = $autoStart;
         return true;
     }
